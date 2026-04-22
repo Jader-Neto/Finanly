@@ -1,6 +1,5 @@
-# Finanly Integrado
+# Finanly
 
-Esta versao integra de verdade o frontend com o backend Python.
 
 ## Estrutura
 
