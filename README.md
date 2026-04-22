@@ -17,6 +17,18 @@ Github para avaliação do protejo da matéria de Projeto de Software da Univers
 - `data/finanly_data.json` — persistencia dos dados
 - `requirements.txt`
 
+> Clone esse projeto em seu computador com o comando:
+>
+> ```
+> 	git clone https://github.com/Jader-Neto/Finanly.git
+> ```
+>
+> Acesse o diretório do projeto seu terminal:
+>
+> ```
+> 	cd [Nome da pasta onde você salvou]
+> ```
+
 ## Como executar
 
 ### 1. Criar ambiente virtual
