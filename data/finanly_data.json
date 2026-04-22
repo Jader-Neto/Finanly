@@ -1,0 +1,11 @@
+{
+  "usuarios": [],
+  "grupos": [],
+  "despesas": [],
+  "pagamentos": [],
+  "contadores": {
+    "proximo_usuario_id": 1,
+    "proximo_grupo_id": 1,
+    "proxima_despesa_id": 1
+  }
+}
