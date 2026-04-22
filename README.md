@@ -57,6 +57,3 @@ http://127.0.0.1:5000
 - calculo de saldos e liquidacao via backend -> frontend
 - persistencia real em JSON
 
-## Observacao
-
-Mantive o backend em Python orientado a objetos. A interface agora faz chamadas reais para ele usando `fetch`.
