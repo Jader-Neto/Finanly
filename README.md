@@ -21,21 +21,130 @@ Depois acesse:
 http://127.0.0.1:5000
 ```
 
-10 funcionalidades do app
+10 funcionalidades principais
+### 1. Criação de contas utilizando a classe `Usuario`
+Cada usuário possui um perfil único contendo:
+- Nome
+- E-mail
+- Senha
+- Chave pública
+- Chave Pix
 
-1- Criação de conta com a classe Usuario.
-2- Login com verificação de senha encapsulada em Usuario.
-3- Geração de chave pública única para cada usuário.
-4- Adição de contatos por chave pública.
-5- Criação de eventos/grupos com a classe Grupo.
-6- Controle de acesso aos grupos por usuário logado.
-7- Registro de despesas usando a classe abstrata Despesa.
-8- Implementação de despesa igualitária com DespesaIgualitaria.
-9- Cálculo automático das cotas dos participantes.
-10- Simplificação de dívidas usando os saldos calculados.
+---
 
-Casos pedidas no código
-Classe abstrata	-> class Despesa(ABC) -> linha 271
-Herança -> class DespesaIgualitaria(Despesa): -> linha 302
-Polimorfismo / binding dinâmico	-> cotas = despesa.calcular_cotas()	-> linha 534
-Polimorfismo / binding dinâmico	-> despesa.valor_total()	-> linha 537
+### 2. Sistema de login com autenticação encapsulada
+O sistema realiza autenticação segura utilizando métodos internos da classe `Usuario`.
+
+---
+
+### 3. Geração automática de chave pública
+Cada conta recebe uma chave única no formato:
+
+```text
+FIN-XXXX-XXXX-XXXX
+```
+
+Essa chave permite que usuários adicionem outros participantes ao sistema.
+
+---
+
+### 4. Adição de contatos por chave pública
+Usuários podem adicionar amigos ou participantes apenas compartilhando suas chaves únicas.
+
+---
+
+### 5. Criação de eventos/grupos utilizando a classe `Grupo`
+Os usuários conseguem criar:
+- Eventos
+- Grupos de despesas
+- Ambientes compartilhados
+
+---
+
+### 6. Controle de acesso por usuário logado
+A aplicação garante que apenas participantes autorizados tenham acesso aos grupos e despesas.
+
+---
+
+### 7. Registro de despesas utilizando classe abstrata
+O sistema utiliza uma estrutura abstrata para permitir múltiplos tipos de despesas futuramente.
+
+---
+
+### 8. Implementação de despesas igualitárias
+A classe `DespesaIgualitaria` divide automaticamente os valores entre os participantes.
+
+---
+
+### 9. Cálculo automático das cotas
+O sistema calcula quanto cada participante deve pagar com base na divisão configurada.
+
+---
+
+### 10. Simplificação automática de dívidas
+O algoritmo reduz transferências desnecessárias entre usuários utilizando os saldos calculados.
+
+Conceitos de Programação Orientada a Objetos (POO)
+
+## Classe Abstrata
+
+A classe abstrata define a estrutura base para qualquer tipo de despesa.
+
+### Código
+
+```python
+class Despesa(ABC):
+```
+
+Linha:
+```text
+271
+```
+
+---
+
+## Herança
+
+A classe `DespesaIgualitaria` herda características da classe abstrata `Despesa`.
+
+### Código
+
+```python
+class DespesaIgualitaria(Despesa):
+```
+
+Linha:
+```text
+302
+```
+
+---
+
+## 🔸 Polimorfismo / Binding Dinâmico
+
+O sistema executa métodos de despesas sem precisar conhecer o tipo exato da despesa.
+
+### Código
+
+```python
+cotas = despesa.calcular_cotas()
+```
+
+Linha:
+```text
+534
+```
+
+---
+
+### Código
+
+```python
+despesa.valor_total()
+```
+
+Linha:
+```text
+537
+```
+
