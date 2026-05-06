@@ -21,7 +21,8 @@ Depois acesse:
 http://127.0.0.1:5000
 ```
 
-10 funcionalidades principais
+## 10 funcionalidades principais
+
 ### 1. Criação de contas utilizando a classe `Usuario`
 Cada usuário possui um perfil único contendo:
 - Nome
