@@ -1,0 +1,113 @@
+{
+  "usuarios": [
+    {
+      "usuario_id": 1,
+      "nome": "Jader Rogerio dos Santos Neto",
+      "email": "jader.rogerio1000@gmail.com",
+      "hash_senha": "15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225",
+      "pix": "1234567489",
+      "chave_publica": "FIN-G30F-XFPW-56IY",
+      "contatos": [
+        2,
+        3,
+        4
+      ],
+      "criado_em": "2026-05-06 00:33:18",
+      "atualizado_em": "2026-05-06 00:33:20",
+      "ativo": true
+    },
+    {
+      "usuario_id": 2,
+      "nome": "Maria Demo 1",
+      "email": "maria1@demo.com",
+      "hash_senha": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "pix": "maria1@pix",
+      "chave_publica": "FIN-YM6G-9NNO-O0RO",
+      "contatos": [
+        1
+      ],
+      "criado_em": "2026-05-06 00:33:20",
+      "atualizado_em": "2026-05-06 00:33:20",
+      "ativo": true
+    },
+    {
+      "usuario_id": 3,
+      "nome": "João Demo 1",
+      "email": "joao1@demo.com",
+      "hash_senha": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "pix": "joao1@pix",
+      "chave_publica": "FIN-LB6L-TNE3-ASC5",
+      "contatos": [
+        1
+      ],
+      "criado_em": "2026-05-06 00:33:20",
+      "atualizado_em": "2026-05-06 00:33:20",
+      "ativo": true
+    },
+    {
+      "usuario_id": 4,
+      "nome": "Ana Demo 1",
+      "email": "ana1@demo.com",
+      "hash_senha": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
+      "pix": "ana1@pix",
+      "chave_publica": "FIN-GB4J-MN7R-27SW",
+      "contatos": [
+        1
+      ],
+      "criado_em": "2026-05-06 00:33:20",
+      "atualizado_em": "2026-05-06 00:33:20",
+      "ativo": true
+    }
+  ],
+  "grupos": [
+    {
+      "grupo_id": 1,
+      "dono_id": 1,
+      "nome": "Jantar de sábado",
+      "membros": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "ids_despesas": [
+        1
+      ],
+      "criado_em": "2026-05-06 00:33:20",
+      "atualizado_em": "2026-05-06 00:33:20",
+      "ativo": true
+    }
+  ],
+  "despesas": [
+    {
+      "tipo": "DespesaIgualitaria",
+      "despesa_id": 1,
+      "dono_id": 1,
+      "grupo_id": 1,
+      "descricao": "Conta do restaurante",
+      "pago_por": 1,
+      "total": 200.0,
+      "participantes": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "categoria": "Alimentação",
+      "anexo": null,
+      "criado_em": "2026-05-06 00:33:20",
+      "atualizado_em": "2026-05-06 00:33:20",
+      "ativo": true
+    }
+  ],
+  "contadores": {
+    "proximo_usuario_id": 5,
+    "proximo_grupo_id": 2,
+    "proxima_despesa_id": 2
+  },
+  "meta": {
+    "app": "Finanly",
+    "schema_version": 4,
+    "atualizado_em": "2026-05-06 00:33:20"
+  }
+}

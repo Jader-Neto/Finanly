@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finanly</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="gradient gradient-a"></div>
+  <div class="gradient gradient-b"></div>
+
+  <main class="auth-page" id="authPage">
+    <section class="auth-card">
+      <div class="auth-brand">
+        <div class="brand-mark">F</div>
+        <div>
+          <h1>Finanly</h1>
+          <p>Acesse seu perfil para gerenciar eventos e despesas compartilhadas.</p>
+        </div>
+      </div>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-auth="login">Entrar</button>
+        <button class="auth-tab" data-auth="register">Criar conta</button>
+      </div>
+
+      <form id="loginForm" class="auth-form active">
+        <input id="loginEmail" type="email" placeholder="E-mail" required />
+        <input id="loginSenha" type="password" placeholder="Senha" required />
+        <button class="btn btn-solid full" type="submit">Entrar</button>
+      </form>
+
+      <form id="registerForm" class="auth-form">
+        <input id="registerNome" type="text" placeholder="Nome completo" required />
+        <input id="registerEmail" type="email" placeholder="E-mail" required />
+        <input id="registerSenha" type="password" placeholder="Senha" required />
+        <input id="registerPix" type="text" placeholder="Chave Pix opcional" />
+        <button class="btn btn-solid full" type="submit">Criar conta</button>
+      </form>
+    </section>
+  </main>
+
+  <main class="app hidden" id="appPage">
+    <aside class="rail">
+      <div>
+        <div class="rail-title">Finanly</div>
+        <div class="rail-sub" id="usuarioLogado">perfil ativo</div>
+      </div>
+      <nav class="rail-nav">
+        <button class="rail-btn active" data-screen="inicio">Início</button>
+        <button class="rail-btn" data-screen="contatos">Contatos</button>
+        <button class="rail-btn" data-screen="grupos">Eventos</button>
+        <button class="rail-btn" data-screen="despesas">Despesas</button>
+        <button class="rail-btn" data-screen="liquidacao">Liquidação</button>
+      </nav>
+      <button id="logoutBtn" class="rail-reset">Sair</button>
+    </aside>
+
+    <section class="workspace">
+      <header class="workspace-head">
+        <div>
+          <div class="kicker small">perfil privado</div>
+          <h2 id="screenTitle">Início</h2>
+        </div>
+        <div class="summary-inline" id="summaryInline">0 pessoas · 0 eventos · 0 despesas</div>
+      </header>
+
+      <section class="screen active" id="inicio">
+        <div class="headline-card">
+          <div class="headline-copy">
+            <small>Total movimentado</small>
+            <strong id="statTotal">R$ 0,00</strong>
+            <p>Seu perfil possui uma chave única. Compartilhe-a para que outras contas possam adicionar você.</p>
+          </div>
+          <div class="headline-stats">
+            <div><span>Contatos</span><strong id="statUsers">0</strong></div>
+            <div><span>Eventos</span><strong id="statGroups">0</strong></div>
+            <div><span>Despesas</span><strong id="statExpenses">0</strong></div>
+          </div>
+        </div>
+        <div class="columns two">
+          <div class="panel">
+            <div class="panel-title">Minha chave</div>
+            <div class="key-card">
+              <strong id="publicKey">---</strong>
+              <button id="copyKeyBtn" class="btn btn-outline full top-gap">Copiar chave</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Ação rápida</div>
+            <button id="seedBtn" class="btn btn-solid full">Popular demonstração neste perfil</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="contatos">
+        <div class="columns two">
+          <div class="panel">
+            <div class="panel-title">Adicionar contato por chave</div>
+            <form id="contactForm" class="form">
+              <input id="contactKey" type="text" placeholder="Ex: FIN-AB12-CD34-EF56" required />
+              <button class="btn btn-solid full" type="submit">Adicionar contato</button>
+            </form>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Meus contatos</div>
+            <div id="contactsList" class="stack"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="grupos">
+        <div class="columns two">
+          <div class="panel">
+            <div class="panel-title">Criar evento</div>
+            <form id="groupForm" class="form">
+              <input id="groupName" type="text" placeholder="Nome do evento/grupo" required />
+              <label class="field-label">Participantes</label>
+              <div id="groupMembers" class="selection"></div>
+              <button class="btn btn-solid full" type="submit">Criar evento</button>
+            </form>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Eventos</div>
+            <div id="groupsList" class="stack"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="despesas">
+        <div class="columns one">
+          <div class="panel">
+            <div class="panel-title">Registrar despesa</div>
+            <form id="expenseForm" class="form">
+              <div class="grid">
+                <select id="expenseGroup" required></select>
+                <select id="expensePaidBy" required></select>
+              </div>
+              <input id="expenseDescription" type="text" placeholder="Descrição" required />
+              <div class="grid">
+                <input id="expenseValue" type="number" step="0.01" min="0.01" placeholder="Valor" required />
+                <select id="expenseCategory">
+                  <option>Alimentação</option><option>Transporte</option><option>Moradia</option><option>Viagem</option><option>Lazer</option><option>Mercado</option><option>Outros</option>
+                </select>
+              </div>
+              <label class="field-label">Participantes da despesa</label>
+              <div id="expenseParticipants" class="selection"></div>
+
+              <label class="upload-card">
+                <input id="expenseImage" type="file" accept="image/*" />
+                <span>Anexar comprovante/imagem opcional</span>
+              </label>
+
+              <button class="btn btn-solid full" type="submit">Adicionar despesa</button>
+            </form>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Feed de despesas</div>
+            <div id="expensesList" class="stack"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="liquidacao">
+        <div class="columns two">
+          <div class="panel">
+            <div class="panel-title">Saldos</div>
+            <div class="form">
+              <select id="settlementGroup"></select>
+              <button id="refreshSettlementBtn" class="btn btn-outline" type="button">Atualizar visão</button>
+            </div>
+            <div id="balancesList" class="stack"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Quem paga quem</div>
+            <div id="settlementsList" class="stack"></div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "app": "Finanly",
+    "schema_version": 4,
+    "criado_em": "inicial",
+    "atualizado_em": "inicial"
+  },
+  "usuarios": [],
+  "grupos": [],
+  "despesas": [],
+  "contadores": {
+    "proximo_usuario_id": 1,
+    "proximo_grupo_id": 1,
+    "proxima_despesa_id": 1
+  }
+}
